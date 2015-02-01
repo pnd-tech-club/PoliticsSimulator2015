@@ -6,7 +6,55 @@ import (
 "fmt"
 "math/rand"
 "time"
+//"bufio"
+//"io"
+"io/ioutil"
+"os"
 )
+
+
+func filecheck(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
+func Metareader(metaname string)(success int) {
+	content, err := ioutil.ReadFile(metaname)
+	if err == nil {
+		lines := strings.Split(string(content), "\n")
+		fmt.Println(lines[0]) // first line
+		fmt.Println(lines[len(lines)-1]) // last line
+		success = 0 //success
+	} else {
+		fmt.Println("Cannot read file")
+		success = 1 //failure
+	}
+	return
+}
+
+// forgot I made this one, whoops
+func metaread() {
+	
+	dat, err := ioutil.ReadFile("./instigator.meta")
+	filecheck(err)
+	fmt.Print(string(dat))
+	
+	buf := make([]byte, 1024)
+
+	instigator, err := os.Open("./instigator.meta")
+	filecheck(err)
+
+	for {
+		n, err := instigator.Read(buf)
+		filecheck(err)
+		if n == 0 {
+			break
+		}
+	}
+	
+}
+
 
 /* processes [y/n] dialogues with the yes/no user input
 the values returned are the "y" or "n" and then a true/false for looping

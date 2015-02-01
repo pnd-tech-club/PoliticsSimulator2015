@@ -1,7 +1,7 @@
 # PoliticsSimulator2015 \<WIP\>
 >Largely Unnecessary
 
-##What's in the tin:
+##What's in the Tin:
 
 - The "svi" package provided by `Packages/svi.go`
 - The "PoliticsSimulator2015" _game_ by `main.go` and support files (once they exist)
@@ -16,3 +16,6 @@
 5. Run via `./PoliticsSimulator2015`
 6. Enjoy
 
+##Notes:
+
+This project is silly.
