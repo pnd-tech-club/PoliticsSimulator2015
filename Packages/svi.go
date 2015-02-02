@@ -27,7 +27,7 @@ func Metareader(metaname string)(success int) {
 		fmt.Println(lines[len(lines)-1]) // last line
 		success = 0 //success
 	} else {
-		fmt.Println("Cannot read file")
+		fmt.Println("That's not a valid Metatype.")
 		success = 1 //failure
 	}
 	return
