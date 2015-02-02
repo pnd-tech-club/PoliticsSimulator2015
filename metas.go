@@ -1,7 +1,6 @@
 package main
 
 import (
-"fmt"
 "io/ioutil"
 "strings"
 )
@@ -26,9 +25,8 @@ func Metareader(metaname string)(newpstats Pstats, success int) {
 
 		success = 0 //success
 	} else {
-		fmt.Println("That's not a valid Metatype.")
 		success = 1 //failure
-		var lines []string
+		var lines [2]string
 		lines[0] = "nil"
 	}
 	return

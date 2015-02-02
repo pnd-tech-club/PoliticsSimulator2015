@@ -14,6 +14,8 @@ import (
 
 var (
 version = "0.1a"
+plyr Pstats
+sucerr int
 )
 
 
@@ -47,24 +49,30 @@ tf := false
 	
 	// Ask for metatype, then read from the relevant .meta file
 	if usrrtn == "y" {
-		for {
-			fmt.Print("Metatype [? for list]: ")
-			fmt.Scan(&usrinpt)
-			if usrinpt == "?" {
-				// There MUST be a better way to do this ... then again ...
-				fmt.Printf("\nInstigator - troublemaking bastards\nPreppy - \nStudent Ambassador - \nUnifier - \n")
+		for  {
+			
+			for { 
+				fmt.Print("Metatype [? for list]: ")
+				fmt.Scan(&usrinpt)
+				if usrinpt == "?" {
+					// There MUST be a better way to do this ... then again ...
+					fmt.Printf("\nInstigator - troublemaking bastards\nPreppy - \nStudent Ambassador - \nUnifier - \n\n")
+				}
+				metaname := usrinpt + ".meta"
+				plyr, sucerr = Metareader(metaname)
+				if sucerr == 0 {
+					break
+				}
 			}
-			metaname := usrinpt + ".meta"
-			plyr, sucerr := Metareader(metaname)
 			fmt.Printf("\nYour stats: \n")
-			fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt)
+			fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\n\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt)
 			if sucerr == 0 {
 				break
 			}
 		}
 	} else {
-		fmt.Println("Using the Default Metatype")
-		plyr, sucerr := Metareader("Default.meta")
+		fmt.Println("Using the Default Metatype.")
+		plyr, sucerr = Metareader("Default.meta")
 		fmt.Printf("\nYour stats: \n")
 		fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt)
 		if sucerr == 0 {
@@ -72,7 +80,18 @@ tf := false
 		}
 	}
 
+	fmt.Println("Type '?' or 'help' to display a list of commands.")
 
+	for {
+		var response string
+		fmt.Printf("\n%v> ", plyr.name)
+		fmt.Scan(&response)
+		
+		fmt.Printf("\nDEBUG: %v\n", response)
+
+		
+		
+	}
 
 	fmt.Printf("\n\nThanks for Playing :) \n")
 } // Program Ends
