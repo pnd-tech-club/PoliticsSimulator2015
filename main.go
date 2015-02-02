@@ -1,19 +1,21 @@
 /*
-Test
+PND Politics Simulator 2015
+Conceived by Sean Hinchee
+
+Disclaimer: Any and all relation or implication that may or may not relate to people who may or may not exist is entirely coincidence and a figment within the beholder's imagination. Please enjoy PS2015 responsibly.
 */
 
 package main
 
 import (
 "fmt"
-//"math"
-//"math/cmplx"
-//"io/ioutil"
-//"strings"
 "svi"
 )
 
-var version = "0.1a"
+var (
+version = "0.1a"
+)
+
 
 func main() {
 
@@ -53,21 +55,25 @@ tf := false
 				fmt.Printf("\nInstigator - troublemaking bastards\nPreppy - \nStudent Ambassador - \nUnifier - \n")
 			}
 			metaname := usrinpt + ".meta"
-			err := svi.Metareader(metaname)
-			if err == 0 {
+			plyr, sucerr := Metareader(metaname)
+			fmt.Printf("\nYour stats: \n")
+			fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt)
+			if sucerr == 0 {
 				break
 			}
 		}
 	} else {
 		fmt.Println("Using the Default Metatype")
-		err := svi.Metareader("Default.meta")
-		if err == 0 {
+		plyr, sucerr := Metareader("Default.meta")
+		fmt.Printf("\nYour stats: \n")
+		fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt)
+		if sucerr == 0 {
 			fmt.Println("Could not read the 'Default.meta' file.")
 		}
 	}
 
 
 
-	fmt.Println("Thanks for Playing :) ")
+	fmt.Printf("\n\nThanks for Playing :) \n")
 } // Program Ends
 
