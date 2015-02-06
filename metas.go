@@ -13,6 +13,7 @@ type Pstats struct{
 	wlth string
 	rpt string
 	bt string
+	pol string
 }
 
 
@@ -21,7 +22,7 @@ func Metareader(metaname string)(newpstats Pstats, success int) {
 	if err == nil {
 		
 		lines := strings.Split(string(content), "\n")
-		newpstats = Pstats{lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6]}
+		newpstats = Pstats{lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6], lines[7]}
 
 		success = 0 //success
 	} else {
