@@ -65,7 +65,7 @@ tf := false
 				}
 			}
 			fmt.Printf("\nYour stats: \n")
-			fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\nPolitical Spectrum Rating: %s\n\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt, plyr.pol)
+			fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\nPolitical Spectrum Rating: %s\nHouse: %s\n\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt, plyr.pol, plyr.hou)
 			if sucerr == 0 {
 				break
 			}
@@ -74,7 +74,7 @@ tf := false
 		fmt.Println("Using the Default Metatype.")
 		plyr, sucerr = Metareader("Default.meta")
 		fmt.Printf("\nYour stats: \n")
-		fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\nPolitical Spectrum Rating: %s\n\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt, plyr.pol)
+		fmt.Printf("Class: %s\nPower: %s\nInfluence: %s\nIntelligence: %s\nWealth: %s\nReputation: %s\nBlood Type: %s\nPolitical Spectrum Rating: %s\nHouse: %s\n\n", plyr.name, plyr.pwr, plyr.inf, plyr.int, plyr.wlth, plyr.rpt, plyr.bt, plyr.pol, plyr.hou)
 		if sucerr == 1 {
 			fmt.Println("Could not read the 'Default.meta' file.")
 		}
