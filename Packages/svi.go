@@ -19,30 +19,21 @@ func filecheck(e error) {
 	}
 }
 
-type Pstats struct{
-	name string
-	pwr string
-	inf string
-	int string
-	wlth string
-	rpt string
-	bt string
-}
 
-
-func Metareader(metaname string)(newpstats Pstats, success int) {
-	content, err := ioutil.ReadFile(metaname)
+// Generalize and anonymize function to general file reader
+func Filereader(filename string)(lines []string, success int) {
+	content, err := ioutil.ReadFile(filename)
 	if err == nil {
 		
-		lines := strings.Split(string(content), "\n")
-		newpstats = Pstats{lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6]}
+		lines = strings.Split(string(content), "\n") // split at each line
+		//newpstats = Pstats{lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6]}
 
 		success = 0 //success
 	} else {
-		fmt.Println("That's not a valid Metatype.")
+		fmt.Println("Error opening file (See: svi.go:Filereader() and/or golang's ioutil.ReadFile()")
 		success = 1 //failure
-		var lines []string
-		lines[0] = "nil"
+		//var lines []string
+		lines[0] = "!Error"
 	}
 	return
 }
