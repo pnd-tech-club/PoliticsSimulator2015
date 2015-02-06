@@ -80,10 +80,13 @@ tf := false
 		}
 	}
 
-	// Begin main game loop
+	
+	/* Begin main game loop */
+
+
 	fmt.Println("Type '?' or 'help' to display a list of commands.")
 
-	for {
+	for running := 0; running < 1; {
 		var response string
 		fmt.Printf("\n%v> ", plyr.name)
 		fmt.Scan(&response)
@@ -91,6 +94,18 @@ tf := false
 		fmt.Printf("\nDEBUG: %v\n", response)
 
 		// switch or other processing locally, then handing off to cmds.go?
+		switch response {
+			case "exit":
+				running = 1
+			case "quit":
+				running = 1
+			case "help":
+				help()
+			case "save":
+				save()
+			default:
+				fmt.Println("Command not found.")
+		}
 		
 	}
 

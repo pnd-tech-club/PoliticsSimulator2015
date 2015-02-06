@@ -5,7 +5,7 @@ import (
 )
 
 
-func save (savename string) {
+func save () {
 	fmt.Println("DEBUG: This function is not completed.")
 }
 
