@@ -13,18 +13,18 @@ import (
 )
 
 
-func filecheck(e error) {
-	if e != nil {
-		panic(e)
-	}
+/* make sure to (at minimum, prompt for) create the the file if it is not found
+-- this function should double as a hack-in Filecreator() function */
+func Filewriter(filename string, texttowrite []string, directory string) {
+	fmt.Print("Useless function at the moment, <WIP>.")
 }
 
 
-// Generalize and anonymize function to general file reader
+/* Should add an option for path to/directory of the file as per Filewriter() */
 func Filereader(filename string)(lines []string, success int) {
 	content, err := ioutil.ReadFile(filename)
 	if err == nil {
-		
+
 		lines = strings.Split(string(content), "\n") // split at each line
 		//newpstats = Pstats{lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6]}
 
@@ -38,13 +38,21 @@ func Filereader(filename string)(lines []string, success int) {
 	return
 }
 
+
+/* Do not call manually, callead by metaread only */
+func filecheck(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
 // forgot I made this one, whoops
 func metaread() {
-	
+
 	dat, err := ioutil.ReadFile("Instigator.meta")
 	filecheck(err)
 	fmt.Print(string(dat))
-	
+
 	buf := make([]byte, 1024)
 
 	instigator, err := os.Open("Instigator.meta")
@@ -57,7 +65,7 @@ func metaread() {
 			break
 		}
 	}
-	
+
 }
 
 
@@ -70,25 +78,25 @@ func YorN(prompt string) (newinputz string, tf bool) {
 	tf = false
 
 	for tf != true {
-	fmt.Printf("\n%v [y/n]: ", prompt)
-	fmt.Scan(&inputz)
-	
-	if inputz = strings.ToLower(inputz); inputz == "yes" {
-		newinputz = "y"
-		tf = true
-	} else if inputz == "no" {
-		newinputz = "n"
-		tf = true
-	} else if inputz == "y" {
-		tf = true
-		newinputz = inputz
-	} else if inputz == "n" {
-		tf = true
-		newinputz = inputz
-	} else {
-		newinputz = "Mountain Goat"
-		tf = false
-	} 
+		fmt.Printf("\n%v [y/n]: ", prompt)
+		fmt.Scan(&inputz)
+
+		if inputz = strings.ToLower(inputz); inputz == "yes" {
+			newinputz = "y"
+			tf = true
+		} else if inputz == "no" {
+			newinputz = "n"
+			tf = true
+		} else if inputz == "y" {
+			tf = true
+			newinputz = inputz
+		} else if inputz == "n" {
+			tf = true
+			newinputz = inputz
+		} else {
+			newinputz = "Mountain Goat"
+			tf = false
+		}
 
 	}
 	return
