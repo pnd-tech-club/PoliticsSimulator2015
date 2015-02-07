@@ -101,6 +101,8 @@ tf := false
 				running = 1
 			case "help":
 				help()
+			case "?":
+				help()
 			case "save":
 				save()
 			default:
