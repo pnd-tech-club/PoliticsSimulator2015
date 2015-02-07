@@ -9,7 +9,7 @@ type Pstats struct{
 	name string
 	pwr string
 	inf string
-	int string
+	int string /* *chuckle* this is awesome */
 	wlth string
 	rpt string
 	bt string
@@ -21,7 +21,7 @@ type Pstats struct{
 func Metareader(metaname string)(newpstats Pstats, success int) {
 	content, err := ioutil.ReadFile(metaname)
 	if err == nil {
-		
+
 		lines := strings.Split(string(content), "\n")
 		newpstats = Pstats{lines[0], lines[1], lines[2], lines[3], lines[4], lines[5], lines[6], lines[7], lines[8]}
 

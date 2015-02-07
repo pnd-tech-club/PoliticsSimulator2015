@@ -5,9 +5,21 @@ import (
 "os"
 )
 
+/****
+All functions contained herein should be solely called (optimally?) from the
+main (main.go's main()) game loop's case structure used to interpret user input.
+****/
+
+
+/* should be able to load in a `.save` file and then restore/set
+global variables/stats/states/stages via reading from the file */
+func load(filename string) {
+	fmt.Print("DEBUG: This function is still <WIP>. Filename: ", filename)
+}
+
 
 /* if whoops is true on return, it means there is an error */
-func save ()(whoops bool) {
+func save()(whoops bool) {
 	var (
 	savename string
 	safetosave bool
@@ -34,7 +46,7 @@ func save ()(whoops bool) {
 		whoops = true
 		return
          }
-	
+
          for _, fi := range fileInfos {
          	fmt.Println("DEBUG: ", fi.Name())
 		if fi.Name() == (savename + ".save") {
@@ -59,7 +71,6 @@ func save ()(whoops bool) {
 	return
 }
 
-func help () {
+func help() {
 	fmt.Printf("\nCommands: \nhelp\nsave\nquit\n")
 }
-

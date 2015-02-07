@@ -6,7 +6,7 @@ import (
 )
 
 /* Not to be called explicitly, run BuildPage first, will add import variables later */
-func WriteOut() {
+func writeout() {
 	bar := "+-------------------------------------------------------------------+"
 	sd := "|"
 	worden := "test, test" // temporary
