@@ -9,12 +9,11 @@
 
 ##To Build:
 
-1. Copy `Packages/svi.go` to the `$GOPATH/src` folder
-2. Install the "svi" package via `go install svi`
-3. Change directory back to the location of `main.go`
-4. Build PoliticsSimulator2015 via `go build`
-5. Run via `./PoliticsSimulator2015`
-6. Enjoy
+1. Run the `cpsvi` script in `src/` (makes dir/copies/installs `svi.go` using your `$GOPATH`)
+2. Change directory back to the location of `main.go`
+3. Build PoliticsSimulator2015 via `go build`
+4. Run via `./PoliticsSimulator2015`
+5. Enjoy
 
 ##Notes:
 
