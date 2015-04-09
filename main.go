@@ -24,6 +24,7 @@ func main() {
 var (
 	usrrtn string
 	usrinpt string
+	debug bool
 )
 
 tf := false
@@ -33,7 +34,7 @@ tf := false
 	fmt.Println("Version: ", version)
 	fmt.Println("Written and Built for your Pleasure by PND Tech Club")
 	fmt.Println("Enjoyment is Optional.")
-	
+
 	// Basic Yes or No Dialogue, see `svi.go` for svi.*  functions
 	for {
 		usrrtn, tf = svi.YorN("Select Your Metatype?") // no [y/n]: is needed, as it is added
@@ -46,12 +47,12 @@ tf := false
 	}
 
 	//randz := svi.Random(1, 6) // gen a number 1-5 (arbitrary)
-	
+
 	// Ask for metatype, then read from the relevant .meta file
 	if usrrtn == "y" {
 		for  {
 			// rewrite nested "for's" using continue's and no break's
-			for { 
+			for {
 				fmt.Print("Metatype [? for list]: ")
 				fmt.Scan(&usrinpt)
 				if usrinpt == "?" {
@@ -80,18 +81,21 @@ tf := false
 		}
 	}
 
-	
+
 	/* Begin main game loop */
 
 
 	fmt.Println("Type '?' or 'help' to display a list of commands.")
 
+	debug = false
 	for running := 0; running < 1; {
 		var response string
 		fmt.Printf("\n%v> ", plyr.name)
 		fmt.Scan(&response)
-		
-		fmt.Printf("\nDEBUG: %v\n", response)
+
+		if debug == true {
+			fmt.Printf("\nDEBUG: %v\n", response)
+		}
 
 		// switch or other processing locally, then handing off to cmds.go?
 		switch response {
@@ -105,12 +109,18 @@ tf := false
 				help()
 			case "save":
 				save()
+			case "debug":
+				debug = debugging(debug)
+			case "print":
+				var tmpstring = []string {"test", "hi"}
+				framepdf(tmpstring, "poltest.pdf")
+			case "":
+				continue
 			default:
 				fmt.Println("Command not found.")
 		}
-		
+
 	}
 
 	fmt.Printf("\n\nThanks for Playing :) \n")
 } // Program Ends
-

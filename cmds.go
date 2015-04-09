@@ -71,6 +71,15 @@ func save()(whoops bool) {
 	return
 }
 
+func debugging(debug bool)(bool) {
+	if debug == true {
+		debug = false
+	} else {
+		debug = true
+	}
+	return debug
+}
+
 func help() {
 	fmt.Printf("\nCommands: \nhelp\nsave\nquit\n")
 }

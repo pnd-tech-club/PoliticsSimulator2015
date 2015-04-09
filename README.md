@@ -7,9 +7,14 @@
 - The "PoliticsSimulator2015" _game_ by `main.go` and support files (once they exist)
 - Not Go
 
+##Requirements:
+
+- Go 1.4.x+
+- https://github.com/jung-kurt/gofpdf
+
 ##To Build:
 
-1. Run the `cpsvi` script in `src/` (makes dir/copies/installs `svi.go` using your `$GOPATH`) (This is in the SVIOS repository)
+1. Run the `cpsvi` script in `src/` (makes dir/copies/installs `svi.go` using your `$GOPATH`) from the SVIOS repository (TC Only, should probably fork here, again)
 2. Change directory back to the location of `main.go`
 3. Build PoliticsSimulator2015 via `go build`
 4. Run via `./PoliticsSimulator2015`
