@@ -81,5 +81,5 @@ func debugging(debug bool)(bool) {
 }
 
 func help() {
-	fmt.Printf("\nCommands: \nhelp\nsave\nquit\n")
+	fmt.Printf("\nCommands: \nhelp\nsave\nprint\nquit\n")
 }
