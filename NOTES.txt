@@ -1,0 +1,6 @@
+#Developer Notes
+
+Unlisted Commands:
+- "debug" - enables DEBUG mode
+
+

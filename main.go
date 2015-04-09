@@ -91,7 +91,8 @@ tf := false
 	for running := 0; running < 1; {
 		var response string
 		fmt.Printf("\n%v> ", plyr.name)
-		fmt.Scan(&response)
+		//fmt.Scan(&response)
+		fmt.Scanln(&response)
 
 		if debug == true {
 			fmt.Printf("\nDEBUG: %v\n", response)
@@ -113,6 +114,7 @@ tf := false
 				debug = debugging(debug)
 			case "print":
 				var tmpstring = []string {"test", "hi"}
+				// framepdf() is in filewriter.go
 				framepdf(tmpstring, "poltest.pdf")
 			case "":
 				continue
