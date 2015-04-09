@@ -9,7 +9,7 @@
 
 ##Requirements:
 
-- Go 1.4.x+
+- Go 1.4.x+ http://golang.org/doc/install
 - https://github.com/jung-kurt/gofpdf
 
 ##To Build:
