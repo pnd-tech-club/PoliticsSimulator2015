@@ -1,0 +1,6 @@
+- Add multiplayer support
+- Add story
+- Add decisions + consequences
+- More print format options
+- Actual print formatting
+
