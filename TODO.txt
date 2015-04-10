@@ -3,4 +3,5 @@
 - Add decisions + consequences
 - More print format options
 - Actual print formatting
+- Add reading .plot files to load events/dialogue/decisions
 
