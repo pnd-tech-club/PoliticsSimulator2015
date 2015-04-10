@@ -113,9 +113,8 @@ tf := false
 			case "debug":
 				debug = debugging(debug)
 			case "print":
-				var tmpstring = []string {"test", "hi"}
-				// framepdf() is in filewriter.go
-				framepdf(tmpstring, "poltest.pdf")
+				// printpdf() is in filewriter.go; prepprint() in cmds.go
+				prepprint()
 			case "":
 				continue
 			default:

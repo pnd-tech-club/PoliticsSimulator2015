@@ -4,6 +4,19 @@ import (
   "fmt"
 )
 
+
+type Pstats struct{
+	name string
+	pwr string
+	inf string
+	int string /* *chuckle* this is awesome */
+	wlth string
+	rpt string
+	bt string
+	pol string
+	hou string
+}
+
 /* used on stats that are utilize the -5 to 5 range
 - This is a variadic function */
 

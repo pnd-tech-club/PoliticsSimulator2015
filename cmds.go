@@ -3,6 +3,7 @@ package main
 import (
 "fmt"
 "os"
+"strings"
 )
 
 /****
@@ -17,6 +18,34 @@ func load(filename string) {
 	fmt.Print("DEBUG: This function is still <WIP>. Filename: ", filename)
 }
 
+/* prepprint calls printpdf() in filewriter.go to prepare a PDF for printing
+newlines are used to start a new line, size 10 font used as per filewriter.go*/
+func prepprint() {
+	/* var kind is used as the decision maker for filename and content */
+	var kind, filename, tag, text string
+
+	for i:=0; i<1; {
+		fmt.Print("Printout to compose? [? for list]: ")
+		fmt.Scanln(&text)
+		text=strings.ToLower(text)
+		if text == "player" {
+			i=1
+			kind=text //temporary
+		} else if text == "?" {
+			fmt.Printf("player - Player stats\nstory - Current story\n")
+		} else {
+			i=0
+		}
+	}
+
+	switch kind {
+		case "player": tag=plyr.name
+		default: tag="default"
+	}
+
+	filename = "ps2k15" + kind + "_" + tag
+	printpdf(text, filename)
+}
 
 /* if whoops is true on return, it means there is an error */
 func save()(whoops bool) {

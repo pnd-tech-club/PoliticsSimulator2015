@@ -5,17 +5,7 @@ import (
 "strings"
 )
 
-type Pstats struct{
-	name string
-	pwr string
-	inf string
-	int string /* *chuckle* this is awesome */
-	wlth string
-	rpt string
-	bt string
-	pol string
-	hou string
-}
+/* Pstats moved to engine.go */
 
 
 func Metareader(metaname string)(newpstats Pstats, success int) {
