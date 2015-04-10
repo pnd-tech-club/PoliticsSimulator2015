@@ -45,8 +45,11 @@ func printpdf(textbox string, filename string)(succ bool) {
 	pdf.SetY(y+0.5)
 	pdf.Write(0.11, textbox)
 	//pdf.Output(os.Stdout) //succ relies on successful formatting/composition
-	pdf.OutputFileAndClose(filename+".pdf")
-
-	succ = true //temporary until debugging implemented
+	err := pdf.OutputFileAndClose(filename+".pdf")
+	if err != nil {
+		succ = false
+	} else {
+		succ = true //temporary until debugging implemented
+	}
 	return
 }
