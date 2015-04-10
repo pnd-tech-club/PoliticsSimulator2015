@@ -9,7 +9,7 @@ import (
 
 
 func Metareader(metaname string)(newpstats Pstats, success int) {
-	content, err := ioutil.ReadFile(metaname)
+	content, err := ioutil.ReadFile(metapath + metaname)
 	if err == nil {
 
 		lines := strings.Split(string(content), "\n")
