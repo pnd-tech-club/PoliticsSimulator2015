@@ -26,23 +26,21 @@ func prepprint() {
 
 	for i:=0; i<1; {
 		fmt.Print("Printout to compose? [? for list]: ")
-		fmt.Scanln(&text)
-		text=strings.ToLower(text)
-		if text == "player" {
+		fmt.Scanln(&kind)
+		text=strings.ToLower(kind)
+		if kind == "player" {
 			i=1
-			kind=text //temporary
-		} else if text == "?" {
+			text = "Name: " + plyr.name + "\nPower: " + plyr.pwr + "\nInfluence: " + plyr.inf + "\nIntellect: " + plyr.int + "\nWealth: "
+			text = text + plyr.wlth + "\nReputation: " + plyr.rpt + "\nBlood Type: " + plyr.bt + "\nPolitical Spectrum Rating: " + plyr.pol
+			text = text + "\nHouse: " + plyr.hou
+		} else if kind == "?" {
 			fmt.Printf("player - Player stats\nstory - Current story\n")
 		} else {
 			i=0
 		}
 	}
 
-	switch kind {
-		case "player": tag=plyr.name
-		default: tag="default"
-	}
-
+	tag = plyr.name
 	filename = "ps2k15" + kind + "_" + tag
 	printpdf(text, filename)
 }

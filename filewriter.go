@@ -26,8 +26,8 @@ func printpdf(textbox string, filename string)(succ bool) {
 	/* Portrait, inches, Letter, irrelevant fontdir (unless custom font) */
 	pdf := gofpdf.New("P", "in", "Letter", "../font")
 	pdf.AddPage()
-	/* Arial font, no B/I/U formatting, size 14 */
-	pdf.SetFont("Arial", "", 10)
+	/* Arial font, no B/I/U formatting, size 8 */
+	pdf.SetFont("Arial", "", 6)
 	/* set/get position */
 	x, y = pdf.GetXY()
 	if x != 0.0 && y != 0.0 {
@@ -35,15 +35,17 @@ func printpdf(textbox string, filename string)(succ bool) {
 	}
 	/* Cell for text, 7"x11", with text */
 	//pdf.Cell(1, 1, bar)
-	/* write out at current (X,Y) w/ line height 0.125" (as per .New())*/
+	/* write out at current (X,Y) w/ line height in inches (as per .New()) */
 	y = y+(0.1*(math.Pow(10, -1000)))
 	pdf.SetY(y)
-	pdf.Write(0.031250, id)
-	/* .Write() breaks on newline, []string is thus unnecessary */
-	pdf.SetY(y+1)
-	pdf.Write(0.031250, textbox)
+	pdf.Write(0.1, id)
+	/* .Write() breaks on newline */
+	pdf.SetFont("Arial", "", 8)
+	/* y+0.11 seems to be valid for starting a new line, 0.1 is too short */
+	pdf.SetY(y+0.5)
+	pdf.Write(0.11, textbox)
 	//pdf.Output(os.Stdout) //succ relies on successful formatting/composition
-	pdf.OutputFileAndClose(filename)
+	pdf.OutputFileAndClose(filename+".pdf")
 
 	succ = true //temporary until debugging implemented
 	return
